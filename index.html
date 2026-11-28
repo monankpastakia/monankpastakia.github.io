@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monank Pastakia | Senior SDET Portfolio</title>
+  <meta name="description" content="Senior SDET with 12+ years in test automation: Playwright, Selenium, Appium, API and performance testing, and data-migration validation. Experience by client, GitHub projects and downloadable resume.">
+  <meta property="og:title" content="Monank Pastakia | Senior SDET">
+  <meta property="og:description" content="12+ years of test automation, QE strategy and data-quality engineering across wealth management, healthcare, telecom, retail and energy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://monankpastakia.github.io/">
+  <meta property="og:image" content="https://monankpastakia.github.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#6d5ef0">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='28' fill='%236d5ef0'/%3E%3Ctext x='50' y='66' font-size='54' text-anchor='middle' fill='white' font-family='Arial' font-weight='700'%3EM%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    // apply saved theme before paint (no flash)
+    try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (_) {}
+  </script>
+</head>
+<body>
+  <a class="sr" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="logo" href="#top" id="logo"></a>
+    <nav class="links" id="nav-links" aria-label="Primary">
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#stories">Case studies</a>
+      <a href="#skills">Skills</a><a href="#resume">Resume</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions"><button class="icon-btn" id="theme" aria-label="Toggle dark / light theme">◐</button><button class="icon-btn menu-btn" id="menu" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">☰</button></div>
+  </header>
+
+  <main id="main">
+    <div class="wrap" id="top">
+      <!-- HERO -->
+      <section class="hero" id="hero">
+        <div class="hero-head">
+          <figure class="hero-photo"><img src="assets/img/profile.webp" alt="Portrait of Monank Pastakia" width="200" height="200" fetchpriority="high"></figure>
+          <div class="hero-id">
+            <span class="eyebrow"><i></i> <span id="h-eyebrow"></span></span>
+            <h1 id="h-name">Hi, I'm <span class="grad-text">Monank Pastakia</span></h1>
+            <p class="hero-title" id="h-title">Senior SDET | Test Automation &amp; Quality Engineering</p>
+          </div>
+        </div>
+        <p class="role" id="h-role">Senior SDET with 12+ years building scalable test automation frameworks, CI/CD quality gates and data-validation pipelines for enterprise teams.</p>
+        <div class="cta">
+          <details class="menu">
+            <summary class="btn primary">⬇ Download Resume</summary>
+            <div class="pop">
+              <button data-dl="pdf">PDF (print-ready)</button>
+              <button data-dl="docx">Word (.doc / .docx)</button>
+            </div>
+          </details>
+          <a class="btn" href="#experience">See my work by client</a>
+          <a class="btn" id="h-gh" href="#projects">GitHub</a>
+          <a class="btn" id="h-li" href="#contact">LinkedIn</a>
+        </div>
+        <div class="grid stats" id="stats"></div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="sec-head"><small>About</small><h2>Quality as an engineering discipline</h2></div>
+        <div class="grid bento">
+          <div class="card glow reveal" id="about-card"></div>
+          <div class="card reveal"><h3>What I bring to a delivery team</h3>
+            <div class="chips" id="about-chips"></div></div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE (employer -> client engagements, expandable) -->
+      <section id="experience">
+        <div class="sec-head"><small>Experience</small><h2>Work by client engagement</h2>
+          <p class="note" style="margin:.5rem 0 0">Open a client to see the project, stack and what I delivered. Filter by capability to see where I've used it.</p></div>
+        <div class="toolbar">
+          <div class="chips" id="filters" role="group" aria-label="Filter engagements by capability"></div>
+          <div class="row">
+            <button class="btn small" id="expand">Expand all</button>
+            <button class="btn small" id="collapse">Collapse all</button>
+          </div>
+        </div>
+        <p class="note" id="filter-status" role="status" aria-live="polite" hidden style="margin:.5rem 0"></p>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <!-- DASHBOARD (derived from the data above) -->
+      <section id="dashboard">
+        <div class="sec-head"><small>Quality Engineering Dashboard</small><h2>12 years at a glance</h2>
+          <p class="note" style="margin:.5rem 0 0">Generated from the experience above: nothing here is hand-typed, so it always matches the resume.</p></div>
+        <div class="grid kpis" id="kpis"></div>
+        <div class="card reveal" style="margin-top:1rem"><h3>Career timeline by engagement</h3><div id="gantt"></div></div>
+        <div class="card reveal" style="margin-top:1rem"><h3>Capability matrix: where each skill was applied</h3>
+          <div style="overflow-x:auto" id="matrix"></div></div>
+      </section>
+
+      <!-- CASE STUDIES -->
+      <section id="stories">
+        <div class="sec-head"><small>Case studies</small><h2>Problem → approach → outcome</h2></div>
+        <div class="grid bento" id="stories-grid"></div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="sec-head"><small>Skills</small><h2>Toolbox</h2></div>
+        <div class="grid bento" id="skills-grid"></div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="sec-head"><small>GitHub</small><h2>Code &amp; frameworks</h2>
+          <p class="note" style="margin:.5rem 0 0">Much of my framework work lives in private repositories. Ask and I will walk you through the code.</p></div>
+        <div class="grid bento" id="showcase-grid" style="margin-bottom:1rem"></div>
+        <div class="grid bento" id="projects-grid"></div>
+        <p class="note" id="gh-note"></p>
+        <div class="card contrib reveal" id="contrib" hidden></div>
+      </section>
+
+      <!-- RESUME -->
+      <section id="resume">
+        <div class="sec-head"><small>Resume</small><h2>Take it with you</h2></div>
+        <div class="card glow reveal row" style="justify-content:space-between">
+          <div><h3>ATS-friendly, single-column resume</h3>
+            <p class="note" style="margin:.3rem 0 0">Same content as this site - PDF for reading, Word for editing.</p></div>
+          <div class="row">
+            <button class="btn primary" data-dl="pdf">⬇ PDF</button>
+            <button class="btn" data-dl="docx">⬇ Word</button>
+            <a class="btn" href="resume.html" target="_blank" rel="noopener">View online</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="card contact glow reveal">
+          <h2>Need a test automation lead who ships?</h2>
+          <p class="note" style="margin:.8rem 0 1.5rem">Open to conversations about SDET and QE roles.</p>
+          <div class="row" style="justify-content:center">
+            <a class="btn primary" id="c-li" href="#">💬 LinkedIn</a>
+            <a class="btn" id="c-mail" href="#" hidden>✉ Email me</a>
+            <a class="btn" id="c-gh" href="#">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="wrap">
+    <p>© <span id="yr">2026</span> <span id="f-name">Monank Pastakia</span> · Built with plain HTML/CSS/JS.<br>
+    Privacy: this site uses cookie-free, aggregate analytics and records which resume formats are downloaded. Browsers sending Do-Not-Track are not counted.</p>
+  </footer>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/resume-data.js"></script>
+  <script src="assets/js/tracking.js"></script>
+  <script src="assets/js/resume-export.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

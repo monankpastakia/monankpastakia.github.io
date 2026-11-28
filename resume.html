@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body { background: var(--bg-2); }
+    .bar { position: sticky; top: 0; z-index: 5; display: flex; gap: .6rem; justify-content: center; padding: .8rem; background: var(--bg); border-bottom: 1px solid var(--line); }
+    #sheet { margin: 1.5rem auto 3rem; box-shadow: var(--shadow); max-width: 8.5in; }
+    @media print { .bar { display: none !important; } #sheet { box-shadow: none; margin: 0; } @page { size: letter; margin: 0; } }
+  </style>
+</head>
+<body class="print-only">
+  <div class="bar">
+    <button class="btn primary small" id="pdf">⬇ Save as PDF</button>
+    <button class="btn small" id="word">⬇ Word</button>
+    <a class="btn small" href="index.html">← Back to site</a>
+  </div>
+  <div id="sheet"></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/resume-data.js"></script>
+  <script src="assets/js/tracking.js"></script>
+  <script src="assets/js/resume-export.js"></script>
+  <script>
+    (() => {
+      const R = window.RESUME, E = window.ResumeExport, v = E.defaultView(R);
+      E.injectCss();
+      document.title = `${R.basics.name} - Resume`;
+      document.getElementById("sheet").innerHTML = E.renderSheet(v);
+      document.getElementById("sheet").style.background = "#fff";
+      const pdf = () => { Track.event("resume_download", { format: "pdf" }); print(); };
+      document.getElementById("pdf").onclick = pdf;
+      document.getElementById("word").onclick = () => { Track.event("resume_download", { format: "docx" }); E.downloadWord(v); };
+      // index.html already tracked the click when it opened ?print=1, so don't double count
+      if (new URLSearchParams(location.search).get("print") === "1") setTimeout(() => print(), 400);
+    })();
+  </script>
+</body>
+</html>
